@@ -1,8 +1,10 @@
 package tp4;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class Book {
+public class Book implements Serializable {
 	
 	private final String isbn;
 	private final String title;
@@ -30,5 +32,29 @@ public class Book {
 	
 	public Author getAuthor() {
 		return author;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Book book = (Book) o;
+		return Objects.equals(isbn, book.isbn);
+	}
+	
+	@Override
+	public int hashCode() {
+		
+		return Objects.hash(isbn);
+	}
+	
+	@Override
+	public String toString() {
+		return "Book{" +
+				"isbn='" + isbn + '\'' +
+				", title='" + title + '\'' +
+				", publishDate=" + publishDate +
+				", author=" + author +
+				'}';
 	}
 }

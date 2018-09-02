@@ -1,6 +1,8 @@
 package tp4;
 
-public class Author {
+import java.io.Serializable;
+
+public class Author implements Serializable {
 	
 	private final String name;
 	private final String surname;
@@ -8,5 +10,21 @@ public class Author {
 	public Author(String name, String surname) {
 		this.name = name;
 		this.surname = surname;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getSurname() {
+		return surname;
+	}
+	
+	@Override
+	public String toString() {
+		return "Author{" +
+				"name='" + name + '\'' +
+				", surname='" + surname + '\'' +
+				'}';
 	}
 }
